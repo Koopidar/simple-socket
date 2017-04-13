@@ -13,16 +13,12 @@ int main(){
 	int s=socket(res->ai_family,res->ai_socktype,res->ai_protocol);
 	connect(s,res->ai_addr,res->ai_addrlen);
 	char msg[]="This is a test message";
-	int remain=sizeof(msg);
-	int sent=0;
+	int remain=sizeof(msg),sent=0;;	
 	while(sent<remain){
-	int n=(int)send(s,msg+sent,remain,0);
-	
+	int n=(int)send(s,msg+sent,remain,0);	
 	sent+=n;
 	remain-=n;	
 		}
-		printf("Bytes Sent:%d\n",sent);
-	
-	
+		printf("Bytes Sent:%d\n",sent);		
 	return 0;
 	}
